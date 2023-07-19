@@ -12,6 +12,15 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	-- Autopairs plugin
+	{ "windwp/nvim-autopairs", event = "InsertEnter" },
+
+	-- Mini plugins
+	{
+		{ "echasnovski/mini.comment", version = "*", opts = {} },
+		{ "echasnovski/mini.animate", version = "*", opts = {} },
+	},
+
 	-- VSCode like terminal
 	{ "akinsho/toggleterm.nvim" },
 
