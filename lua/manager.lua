@@ -12,17 +12,17 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	-- Vim Tmux Navigator
+	{ "christoomey/vim-tmux-navigator", lazy = false },
+
 	-- Autopairs plugin
 	{ "windwp/nvim-autopairs", event = "InsertEnter" },
 
 	-- Mini plugins
 	{
 		{ "echasnovski/mini.comment", version = "*", opts = {} },
-		{ "echasnovski/mini.animate", version = "*", opts = {} },
+		-- { "echasnovski/mini.animate", version = "*", opts = {} },
 	},
-
-	-- VSCode like terminal
-	{ "akinsho/toggleterm.nvim" },
 
 	-- VSCode like troubles
 	{ "folke/trouble.nvim" },
@@ -52,7 +52,8 @@ require("lazy").setup({
 	},
 
 	-- OneDark colorscheme
-	{ "navarasu/onedark.nvim", opts = { style = "darker" } },
+	-- { "navarasu/onedark.nvim", opts = { style = "darker" } },
+	{ "rose-pine/neovim", name = "rose-pine" },
 
 	-- Syntax highlighting
 	{
