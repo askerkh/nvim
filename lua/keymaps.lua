@@ -1,43 +1,46 @@
--- remap abstraction function
-function Map(mode, lhs, rhs, opts)
-	local options = { noremap = true }
-	if opts then
-		options = vim.tbl_extend("force", options, opts)
-	end
-	vim.keymap.set(mode, lhs, rhs, options)
-end
-
 -- leader key
 vim.g.mapleader = " "
 
 -- escape to jk remap
-Map("i", "jk", "<Esc>", { desc = "Escape" })
+vim.keymap.set("i", "jk", "<Esc>", { desc = "Escape" })
+
+-- Netrw (explorer)
+vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 
 -- move line up and down in visual mode
-Map("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "move line down (visual mode)" })
-Map("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "move line down (visual mode)" })
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- align display when moving cursor
-Map("n", "<C-d>", "<C-d>zz")
-Map("n", "<C-u>", "<C-u>zz")
-Map("n", "n", "nzzzv")
-Map("n", "N", "Nzzzv")
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "J", "mzJ`z")
 
 -- resize window
-Map("n", "<A-h>", "<C-w><", { desc = "decrease size vertical window" })
-Map("n", "<A-l>", "<C-w>>", { desc = "increase size vertical window" })
-Map("n", "<A-k>", "<C-w>+", { desc = "increase size horizontal window" })
-Map("n", "<A-j>", "<C-w>-", { desc = "decrease size horizontal window" })
-Map("n", "q:", "")
+vim.keymap.set("n", "<A-h>", "<C-w><", { desc = "decrease size vertical window" })
+vim.keymap.set("n", "<A-l>", "<C-w>>", { desc = "increase size vertical window" })
+vim.keymap.set("n", "<A-k>", "<C-w>+", { desc = "increase size horizontal window" })
+vim.keymap.set("n", "<A-j>", "<C-w>-", { desc = "decrease size horizontal window" })
+vim.keymap.set("n", "q:", "")
 
--- navigating
-Map("n", "<C-h>", "<C-w>h", { desc = "navigate to left" })
-Map("n", "<C-l>", "<C-w>l", { desc = "navigate to right" })
-Map("n", "<C-k>", "<C-w>k", { desc = "navigate to up" })
-Map("n", "<C-j>", "<C-w>j", { desc = "navigate to down" })
+-- greatest remap ever
+vim.keymap.set("x", "<leader>p", [["_dP]])
 
--- tabs manage
--- map("n", "<leader>to", ":tabedit<cr>")
--- map("n", "<leader>tc", ":tabclose<cr>")
--- map("n", "tn", ":tabnext<CR>")
--- map("n", "tp", ":tabprev<CR>")
+-- next greatest remap ever : asbjornHaland
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
+
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+
+vim.keymap.set("n", "Q", "<nop>")
+vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+vim.keymap.set("n", "<leader>cfg", "<cmd>e ~/.config/nvim/lua/manager.lua<CR>")
+
+vim.keymap.set("n", "<leader><leader>", function()
+	vim.cmd("so")
+end)

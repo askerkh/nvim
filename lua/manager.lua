@@ -12,6 +12,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	-- Harpoon theprimeagen plugin
+	{ "theprimeagen/harpoon" },
 	-- Vim Tmux Navigator
 	{ "christoomey/vim-tmux-navigator", lazy = false },
 
@@ -21,14 +23,10 @@ require("lazy").setup({
 	-- Mini plugins
 	{
 		{ "echasnovski/mini.comment", version = "*", opts = {} },
-		-- { "echasnovski/mini.animate", version = "*", opts = {} },
 	},
 
 	-- VSCode like troubles
 	{ "folke/trouble.nvim" },
-
-	-- LuaLine status bar
-	{ "nvim-lualine/lualine.nvim" },
 
 	-- Formatting plugin
 	{ "jose-elias-alvarez/null-ls.nvim" },
@@ -52,8 +50,8 @@ require("lazy").setup({
 	},
 
 	-- OneDark colorscheme
-	-- { "navarasu/onedark.nvim", opts = { style = "darker" } },
-	{ "rose-pine/neovim", name = "rose-pine" },
+	{ "navarasu/onedark.nvim", opts = { style = "darker" } },
+	-- { "rose-pine/neovim", name = "rose-pine" },
 
 	-- Syntax highlighting
 	{
@@ -66,49 +64,30 @@ require("lazy").setup({
 		},
 	},
 
-	-- Lsp setup
 	{
-		-- LSP Configuration & Plugins
-		"neovim/nvim-lspconfig",
+		"VonHeikemen/lsp-zero.nvim",
+		branch = "v1.x",
 		dependencies = {
-			-- Automatically install LSPs to stdpath for neovim
-			{ "williamboman/mason.nvim", config = true },
+			-- LSP Support
+			"neovim/nvim-lspconfig",
+			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 
-			-- Useful status updates for LSP
-			-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-			{ "j-hui/fidget.nvim", tag = "legacy", opts = {} },
-
-			-- Additional lua configuration, makes nvim stuff amazing!
-			"folke/neodev.nvim",
-		},
-	},
-
-	-- Autocompletion
-	{
-		"hrsh7th/nvim-cmp",
-		dependencies = {
-			-- Snippet Engine & its associated nvim-cmp source
-			"L3MON4D3/LuaSnip",
+			-- Autocompletion
+			"hrsh7th/nvim-cmp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
 			"saadparwaiz1/cmp_luasnip",
-
-			-- Adds LSP completion capabilities
 			"hrsh7th/cmp-nvim-lsp",
-
-			-- Adds a number of user-friendly snippets
-			"rafamadriz/friendly-snippets",
-			-- lsp kind icons
+			"hrsh7th/cmp-nvim-lua",
 			"onsails/lspkind.nvim",
-		},
-	},
 
-	-- VSCode like explorer
-	{
-		"nvim-tree/nvim-tree.lua",
-		version = "*",
-		lazy = false,
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
+			-- Snippets
+			"L3MON4D3/LuaSnip",
+			"rafamadriz/friendly-snippets",
+
+			-- For neovim config lsp
+			"folke/neodev.nvim",
 		},
 	},
 })
