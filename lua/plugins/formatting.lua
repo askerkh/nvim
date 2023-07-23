@@ -32,7 +32,6 @@ null_ls.setup({
 				"svelte",
 			},
 		}),
-		require("typescript.extensions.null-ls.code-actions"),
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then

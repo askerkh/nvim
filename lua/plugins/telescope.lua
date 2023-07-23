@@ -35,3 +35,4 @@ vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[f]ind [f]iles" 
 vim.keymap.set("n", "<leader>sg", function()
 	builtin.grep_string({ search = vim.fn.input("Grep > ") })
 end, { desc = "[s]earch [g]ord" })
+vim.keymap.set("n", "<leader>sb", builtin.buffers, { desc = "[s]earch [b]uffers" })

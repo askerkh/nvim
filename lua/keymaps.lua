@@ -40,6 +40,9 @@ vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 vim.keymap.set("n", "<leader>cfg", "<cmd>e ~/.config/nvim/lua/manager.lua<CR>")
+-- vim.keymap.set("n", "<C-f>", function()
+-- 	vim.cmd("silent !tmux neww ~/.config/bin/tmux-sessionizer")
+-- end, { desc = "Control [f]ind in projects and open new tmux session" })
 
 vim.keymap.set("n", "<leader><leader>", function()
 	vim.cmd("so")

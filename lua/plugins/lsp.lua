@@ -2,11 +2,19 @@ local lsp = require("lsp-zero")
 
 require("neodev").setup({})
 
+local luasnip = require("luasnip")
+
+luasnip.filetype_extend("typescriptreact", { "html" })
+luasnip.filetype_extend("svelte", { "html" })
+
 lsp.preset("recommended")
 
 lsp.ensure_installed({
 	"tsserver",
 	"eslint",
+	"tailwindcss",
+	"cssls",
+	"lua_ls",
 })
 
 -- Fix Undefined global 'vim'
