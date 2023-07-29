@@ -1,5 +1,5 @@
 require("onedark").setup({
-	transparent = true,
+	style = "cool",
 })
 
 vim.cmd.colorscheme("onedark")
