@@ -12,8 +12,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	-- Harpoon theprimeagen plugin
-	{ "theprimeagen/harpoon" },
+
+	-- Better vim motions
+	{ "phaazon/hop.nvim" },
+
 	-- Vim Tmux Navigator
 	{ "christoomey/vim-tmux-navigator", lazy = false },
 
@@ -49,9 +51,8 @@ require("lazy").setup({
 		end,
 	},
 
-	-- OneDark colorscheme
-	{ "navarasu/onedark.nvim", opts = { style = "darker" } },
-	-- { "rose-pine/neovim", name = "rose-pine" },
+	-- Gruvbox colorscheme
+	{ "morhetz/gruvbox" },
 
 	-- Syntax highlighting
 	{
@@ -87,7 +88,7 @@ require("lazy").setup({
 			"rafamadriz/friendly-snippets",
 
 			-- For neovim config lsp
-			"folke/neodev.nvim",
+			{ "folke/neodev.nvim", opts = {} },
 		},
 	},
 })

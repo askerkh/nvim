@@ -1,7 +1,5 @@
 local lsp = require("lsp-zero")
 
-require("neodev").setup({})
-
 local luasnip = require("luasnip")
 
 luasnip.filetype_extend("typescriptreact", { "html" })
