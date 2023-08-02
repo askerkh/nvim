@@ -27,6 +27,9 @@ require("lazy").setup({
 		{ "echasnovski/mini.comment", version = "*", opts = {} },
 	},
 
+	-- VSCode like file tree
+	{ "nvim-tree/nvim-tree.lua", dependencies = { "nvim-tree/nvim-web-devicons" } },
+
 	-- VSCode like troubles
 	{ "folke/trouble.nvim" },
 
@@ -57,6 +60,7 @@ require("lazy").setup({
 		},
 	},
 
+	-- Lsp setup
 	{
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v1.x",
@@ -80,7 +84,7 @@ require("lazy").setup({
 			"rafamadriz/friendly-snippets",
 
 			-- For neovim config lsp
-			{ "folke/neodev.nvim", opts = {} },
+			"folke/neodev.nvim",
 		},
 	},
 })

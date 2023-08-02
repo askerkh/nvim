@@ -3,7 +3,6 @@ local lsp = require("lsp-zero")
 local luasnip = require("luasnip")
 
 luasnip.filetype_extend("typescriptreact", { "html" })
-luasnip.filetype_extend("svelte", { "html" })
 
 lsp.preset("recommended")
 
@@ -62,6 +61,8 @@ lsp.on_attach(function(_, bufnr)
 	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 	vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 end)
+
+require("neodev").setup({})
 
 lsp.setup()
 
