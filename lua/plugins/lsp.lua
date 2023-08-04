@@ -29,6 +29,8 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 cmp_mappings["<Tab>"] = nil
 cmp_mappings["<S-Tab>"] = nil
 
+require("neodev").setup({})
+
 lsp.setup_nvim_cmp({
 	mapping = cmp_mappings,
 	formatting = {
@@ -62,10 +64,12 @@ lsp.on_attach(function(_, bufnr)
 	vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 end)
 
-require("neodev").setup({})
-
 lsp.setup()
 
 vim.diagnostic.config({
-	virtual_text = true,
+	virtual_text = false,
 })
+
+-- Show line diagnostics automatically in hover window
+vim.o.updatetime = 250
+vim.cmd([[autocmd CursorHold * lua vim.diagnostic.open_float(nil, {focus=false})]])
