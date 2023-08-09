@@ -46,8 +46,8 @@ require("lazy").setup({
 	-- Telescope
 	{ "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
 
-	-- Gruvbox colorscheme
-	{ "morhetz/gruvbox" },
+	-- New nightfox colorscheme
+	{ "EdenEast/nightfox.nvim" },
 
 	-- Syntax highlighting
 	{
