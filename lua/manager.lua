@@ -12,6 +12,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	-- Autotag html
+	{ "windwp/nvim-ts-autotag" },
 
 	-- Better vim motions
 	{ "phaazon/hop.nvim" },

@@ -15,7 +15,7 @@ local opts = {
 		"tsx",
 		"typescript",
 		"go",
-    "cpp",
+		"cpp",
 	},
 }
 
