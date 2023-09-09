@@ -1,3 +1,3 @@
-require("nightfox").setup({})
+require("rose-pine").setup({})
 
-vim.cmd.colorscheme("nightfox")
+vim.cmd.colorscheme("rose-pine")

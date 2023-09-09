@@ -48,9 +48,11 @@ require("lazy").setup({
 	-- Telescope
 	{ "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
 
-	-- New nightfox colorscheme
-	{ "EdenEast/nightfox.nvim" },
-
+	-- Colorscheme
+	{
+		"rose-pine/neovim",
+		name = "rose-pine",
+	},
 	-- Syntax highlighting
 	{
 		"nvim-treesitter/nvim-treesitter",
