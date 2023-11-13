@@ -6,12 +6,14 @@ luasnip.filetype_extend("typescriptreact", { "html" })
 
 lsp.preset("recommended")
 
+
 lsp.ensure_installed({
 	"tsserver",
 	"eslint",
 	"tailwindcss",
 	"cssls",
 	"lua_ls",
+  "jsonls"
 })
 
 -- Fix Undefined global 'vim'
@@ -63,6 +65,15 @@ lsp.on_attach(function(_, bufnr)
 	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 	vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 end)
+
+require('lspconfig').jsonls.setup({
+  settings = {
+    json = {
+      schemas = require('schemastore').json.schemas(),
+      validate = { enable = true },
+    },
+  },
+})
 
 lsp.setup()
 
